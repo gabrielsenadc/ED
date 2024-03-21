@@ -5,12 +5,14 @@
 
 int main(){
     int qtdP;
+    printf("#### Cadastro de Produtos ####\n");
     printf("Quantos produtos? ");
     scanf("%d%*c", &qtdP);
     tProd **p = cadastrarProdutos(qtdP);
 
     char nome[100];
-    printf("Qual o nome do supermercado? ");
+    printf("### Cadastro do Supermercado ###\n");
+    printf("Nome do supermercado: ");
     scanf("%[^\n]%*c", nome);
     tSuper *s = criaSuper(nome, p, qtdP);
 

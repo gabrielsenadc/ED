@@ -11,9 +11,11 @@ typedef struct tEstoque{
 
 tEstoque *criaEstoque(tProd **p, int qtdP){
     tEstoque *e = malloc(sizeof(tEstoque));
+    printf("### Estoque ###\n");
     e->item = lerItens(p, qtdP);
     e->qtdItens = qtdP;
     e->valor = calculaValor(e);
+    printf("###############\n");
     return e;
 }
 

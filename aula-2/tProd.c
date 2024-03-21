@@ -28,12 +28,14 @@ tProd **cadastrarProdutos(int qtdP){
     char nome[100];
     float valor = 0;
     for(int i = 0; i < qtdP; i++){
-        printf("Qual o nome do produto %d? ", i + 1);
+        printf("Nome do produto %d: ", i + 1);
         scanf("%[^\n]%*c", nome);
-        printf("Qual o valor do produto %d? ", i + 1);
+        printf("Valor do produto %d: ", i + 1);
         scanf("%f%*c", &valor);
         p[i] = criaProd(nome, valor);
+        if(i != qtdP - 1) printf("\n");
     }
+    printf("##############################\n\n");
 
     return p;
 }

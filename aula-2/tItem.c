@@ -12,7 +12,7 @@ tItem **lerItens(tProd **p, int qtdP){
     int num;
     tItem **item = malloc(qtdP * sizeof(tItem*));
     for(int i = 0; i < qtdP; i++){
-        printf("Qual a quantidade de %s? ", obtemNome(p[i]));
+        printf("Quantidade de %s: ", obtemNome(p[i]));
         scanf("%d%*c", &num);
         item[i] = criaItem(p[i], num);
     }

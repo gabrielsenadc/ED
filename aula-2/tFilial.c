@@ -18,10 +18,12 @@ tFilial *criaFilial(char *nome, tProd **p, int qtdP){
 tFilial **lerFiliais(tProd **p, int qtdP, int qtdF){
     char nome[100];
     tFilial **filial = malloc(qtdF * sizeof(tFilial*));
+    printf("### Cadastro de Filiais ###\n");
     for(int i = 0; i < qtdF; i++){
-        printf("Qual o nome da filial %d? ", i + 1);
+        printf("Nome da filial %d: ", i + 1);
         scanf("%[^\n]%*c", nome);
         filial[i] = criaFilial(nome, p, qtdP);
+        if(i != qtdF - 1) printf("\n");
     }
     return filial;
 }

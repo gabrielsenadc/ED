@@ -13,10 +13,12 @@ typedef struct tSuper{
 tSuper *criaSuper(char *nome, tProd **p, int qtdP){
     tSuper *s = malloc(sizeof(tSuper));
     s->nome = strdup(nome);
-    printf("Quantas filiais? ");
+    printf("Numero de filiais: ");
     scanf("%d%*c", &s->qtdFilial);
+    printf("\n");
     s->filial = lerFiliais(p, qtdP, s->qtdFilial);
     s->valor = estoqueTotal(s);
+    printf("################################\n\n");
     return s;
 }
 

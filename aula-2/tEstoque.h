@@ -9,6 +9,8 @@ tEstoque *criaEstoque(tProd **p, int qtdP);
 
 float calculaValor(tEstoque *e);
 
+float obtemValorEstoque(tEstoque *e);
+
 void desalocaEstoque(tEstoque *e);
 
 void imprimeEstoque(tEstoque *e);

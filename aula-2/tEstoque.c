@@ -25,6 +25,10 @@ float calculaValor(tEstoque *e){
     return valor;
 }
 
+float obtemValorEstoque(tEstoque *e){
+    return e->valor;
+}
+
 void desalocaEstoque(tEstoque * e){
     for(int i = 0; i < e->qtdItens; i++){
         desalocaItem(e->item[i]);
@@ -34,8 +38,8 @@ void desalocaEstoque(tEstoque * e){
 }
 
 void imprimeEstoque(tEstoque * e){
-    printf("Estoque: %2.f\n", e->valor);
+    printf("   Estoque: %2.f\n", e->valor);
     for(int i = 0; i < e->qtdItens; i++){
-        imprimeItem(e->item);
+        imprimeItem(e->item[i]);
     }
 }

@@ -35,7 +35,7 @@ void desalocaItem(tItem * item){
 
 void imprimeItem(tItem * item){
     if(item->qtd == 0) return;
-    printf("Item: ");
+    printf("     Item: ");
     imprimeProd(item->prod);
     printf(", quantidade: %d\n", item->qtd);
 }

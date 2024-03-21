@@ -5,10 +5,14 @@
 
 typedef struct tFilial tFilial;
 
-tFilial *criaFilial(char *nome, tEstoque *e, tProd **p, int qtdP);
+tFilial *criaFilial(char *nome, tProd **p, int qtdP);
 
-void desalocaFilial(tFilial *e);
+tFilial **lerFiliais(tProd **p, int qtdP, int qtdF);
 
-void imprimeFilial(tFilial *e);
+void desalocaFilial(tFilial *f);
+
+void imprimeFilial(tFilial *f);
+
+float obtemValorFilial(tFilial *f);
 
 #endif

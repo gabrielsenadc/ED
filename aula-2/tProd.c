@@ -19,7 +19,23 @@ float obtemValor(tProd *p){
 tProd *criaProd(char *nome, float valor){
     tProd *prod = malloc(sizeof(tProd));
     prod->nome = strdup(nome);
+    prod->valor = valor;
     return prod;
+}
+
+tProd **cadastrarProdutos(int qtdP){
+    tProd **p = malloc(qtdP * sizeof(tProd));
+    char nome[100];
+    float valor = 0;
+    for(int i = 0; i < qtdP; i++){
+        printf("Qual o nome do produto %d? ", i + 1);
+        scanf("%[^\n]%*c", nome);
+        printf("Qual o valor do produto %d? ", i + 1);
+        scanf("%f%*c", &valor);
+        p[i] = criaProd(nome, valor);
+    }
+
+    return p;
 }
 
 void desalocaProd(tProd * p){
@@ -28,5 +44,5 @@ void desalocaProd(tProd * p){
 }
 
 void imprimeProd(tProd * p){
-    pritnf("%s, valor unitario: %2.f", p->nome, p->valor);
+    printf("%s, valor unitario: %2.f", p->nome, p->valor);
 }

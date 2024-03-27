@@ -35,7 +35,7 @@ int recuperaNLinhas (Matriz* mat){
 }
 
 Matriz* transposta (Matriz* mat){
-    Matriz* mat2 = inicializaMatriz(mat->l, mat->c);
+    Matriz* mat2 = inicializaMatriz(mat->c, mat->l);
     
     for(int i = 0; i < mat2->l; i++){
         for(int j = 0; j < mat2->c; j++){

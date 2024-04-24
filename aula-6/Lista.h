@@ -18,4 +18,8 @@ void liberaLista(Lista *lista);
 
 int existeNaLista(Lista *lista, void *p);
 
+void imprimeLista(Lista *lista);
+
+float calculaReceitaLista(Lista *lista);
+
 #endif 

@@ -25,3 +25,11 @@ void liberaGato(Gato *cat){
     free(cat->nome);
     free(cat);
 }
+
+void imprimeGato(Gato *cat){
+    printf("gato %s\n", cat->nome);
+}
+
+void atribuiNivelAgressividadeGato(Gato *cat, int tipo){
+    cat->comportamento = tipo;
+}

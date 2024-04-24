@@ -11,4 +11,8 @@ int obtemComportamentoCachorro(Cachorro *dog);
 
 void liberaCachorro(Cachorro *dog);
 
+void imprimeCachorro(Cachorro *dog);
+
+void atribuiNivelAgressividadeCachorro(Cachorro *dog, int tipo);
+
 #endif 

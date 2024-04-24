@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "BanhoTosa.h"
 
-/*
+
 int main(int argc, const char * argv[]) {
 
     //cadastra uns cachorrinhos e gatinhos
@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
     
     //calcula valor a receber
     float valor = calculaReceita(loja);
-    printf("\nValor a Receber %.2f", valor);
+    printf("\nValor a Receber %.2f\n", valor);
     
     //libera tudo
     liberaBanhoTosa(loja);
@@ -68,4 +68,3 @@ int main(int argc, const char * argv[]) {
 
     return 0;
 }
-*/

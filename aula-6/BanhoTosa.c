@@ -27,9 +27,9 @@ void cadastraCachorro(BanhoTosa* loja, Cachorro* dog){
 }
 
 void cadastraGato(BanhoTosa* loja, Gato* cat){
-    if(obtemComportamentoCachorro(cat) == MANSO) insereAnimal(loja->mansos, (void*) cat, CAT);
+    if(obtemComportamentoGato(cat) == MANSO) insereAnimal(loja->mansos, (void*) cat, CAT);
 
-    if(obtemComportamentoCachorro(cat) == BRAVO) insereAnimal(loja->bravos, (void*) cat, CAT);
+    if(obtemComportamentoGato(cat) == BRAVO) insereAnimal(loja->bravos, (void*) cat, CAT);
 }
 
 void atualizaSituacaoGato(BanhoTosa* loja, Gato* cat){
@@ -46,14 +46,42 @@ void atualizaSituacaoGato(BanhoTosa* loja, Gato* cat){
 }
 
 void atualizaSituacaoCachorro(BanhoTosa* loja, Cachorro* dog){
-    if(obtemComportamentoGato(dog) == MANSO)
+    if(obtemComportamentoCachorro(dog) == MANSO)
         if(existeNaLista(loja->bravos, (void*) dog)){
             removeAnimal(loja->bravos, (void*) dog);
             insereAnimal(loja->mansos, (void*) dog, DOG);
         }
-    if(obtemComportamentoGato(dog) == BRAVO)
+    if(obtemComportamentoCachorro(dog) == BRAVO)
         if(existeNaLista(loja->mansos, (void*) dog)){
             removeAnimal(loja->mansos, (void*) dog);
             insereAnimal(loja->bravos, (void*) dog, DOG);
         }
+}
+
+void imprimeBanhoTosa(BanhoTosa* loja){
+    printf("Nome da loja: %s\n", loja->nome);
+
+    printf("Animais mansos:\n");
+    imprimeLista(loja->mansos);
+
+    printf("Animais agressivos:\n");
+    imprimeLista(loja->bravos);
+}
+
+float calculaReceita(BanhoTosa* loja){
+    float valor = 0;
+
+    valor += calculaReceitaLista(loja->mansos);
+    valor += calculaReceitaLista(loja->bravos);
+
+    return valor;
+}
+
+void liberaBanhoTosa(BanhoTosa* loja){
+    liberaLista(loja->bravos);
+    liberaLista(loja->mansos);
+
+    free(loja->nome);
+    
+    free(loja);
 }

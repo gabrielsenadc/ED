@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Lista.h"
+#include "Gato.h"
+#include "Cachorro.h"
 
 typedef struct cel Cel;
 
@@ -31,13 +33,13 @@ void insereAnimal(Lista *lista, void *animal, int tipo){
     cel->tipo = tipo;
     cel->animal = animal;
 
-    lista->last = cel;
     cel->ant = lista->last;
     cel->prox = NULL;
     if(lista->last) lista->last->prox = cel;
 
     if(lista->first == NULL) lista->first = cel;
 
+    lista->last = cel;
 }
 
 void removeAnimal(Lista *lista, void *p){
@@ -74,5 +76,28 @@ int existeNaLista(Lista *lista, void *p){
         if(cel->animal == p) return 1;
     }
     return 0;
+}
+
+void imprimeLista(Lista *lista){
+    for(Cel *cel = lista->first; cel; cel = cel->prox){
+        if(cel->tipo == DOG) imprimeCachorro((Cachorro*) cel->animal);
+        if(cel->tipo == CAT) imprimeGato((Gato*) cel->animal);
+    }
+    printf("\n");
+}
+
+float calculaReceitaLista(Lista *lista){
+    float valor = 0;
+    for(Cel *cel = lista->first; cel; cel = cel->prox){
+        if(cel->tipo == DOG) {
+            valor += 40;
+            if(obtemComportamentoCachorro((Cachorro*) cel->animal)) valor += 5;
+        }
+        if(cel->tipo == CAT) {
+            valor += 30;
+            if(obtemComportamentoGato((Gato*) cel->animal)) valor += 5;
+        }
+    }
+    return valor;
 }
 

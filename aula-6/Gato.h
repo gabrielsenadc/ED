@@ -7,8 +7,13 @@ typedef struct gato Gato;
 
 Gato* inicGato(char *nome, int tipo);
 
-int obtemComportamentoGato(Gato *dog);
+int obtemComportamentoGato(Gato *cat);
 
-void liberaGato(Gato *dog);
+void liberaGato(Gato *cat);
+
+void imprimeGato(Gato *cat);
+
+void atribuiNivelAgressividadeGato(Gato *cat, int tipo);
+
 
 #endif 

@@ -12,7 +12,8 @@ struct lista{
 
 struct celula{
     Produto *p;
-    Celula *next;
+    Celula *prox;
+    Celula *ant;
 };
 
 Lista* criaLista(){
@@ -21,32 +22,22 @@ Lista* criaLista(){
     return l;
 }
 
-void insereInicioProduto(Lista *l, Produto *p){
+void insereProduto(Lista *l, Produto *p){
     Celula *cel = malloc(sizeof(Celula));
     cel->p = p;
-    cel->next = l->first;
+    if(l->first != NULL) l->first->ant = cel;
+    cel->prox = l->first;
+    cel->ant = NULL;
 
-    if(!l->last) l->last = cel;
+    if(l->last == NULL) l->last = cel;
     l->first = cel;
 
 }
 
-void insereFimProduto(Lista *l, Produto *p){
-    Celula *cel = malloc(sizeof(Celula));
-    cel->p = p;
-    cel->next = NULL;
-
-    if(!l->last) l->first = cel;
-    if(l->last) l->last->next = cel;
-    l->last = cel;
-}
-
 void retiraProduto(Lista *l, int codigo){
-    Celula *ant = NULL, *cel = l->first;
-    while(cel){
+    Celula *cel;
+    for(cel = l->first; cel!= NULL; cel = cel->prox){
         if(obtemCodigo(cel->p) == codigo) break;
-        ant = cel;
-        cel = cel->next;
     }
 
     if(!cel){
@@ -54,18 +45,19 @@ void retiraProduto(Lista *l, int codigo){
         return;
     }
     
-    if(!ant) l->first = cel->next;
-    if(!cel->next) {
-        l->last = ant;
-        if(ant) ant->next = NULL;
-    }
-    if(ant && cel->next) ant->next = cel->next;
+
+    if(cel->prox != NULL) cel->prox->ant = cel->ant;
+    if(cel->ant != NULL) cel->ant->prox = cel->prox;
+
+    if(cel->ant == NULL) l->first = cel->prox;
+    if(cel->prox != NULL)  l->last = cel->ant;
+        
     free(cel);
 }
 
 void imprimeLista(Lista *l){
     printf("Lista:\n");
-    for(Celula *cel = l->first; cel; cel = cel->next){
+    for(Celula *cel = l->first; cel; cel = cel->prox){
         imprimeProduto(cel->p);
     }
 }
@@ -75,7 +67,7 @@ void liberaLista(Lista *l){
     Celula *aux = l->first;
     while(aux){
         cel = aux;
-        aux = cel->next;
+        aux = cel->prox;
         free(cel);
     }
     free(l);

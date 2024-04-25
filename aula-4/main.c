@@ -11,17 +11,14 @@ int main() {
     Produto *chocolate = criaProduto(3, "chocolate", 15);
     Produto *feijao = criaProduto(4, "feijao", 9);
 
-    insereProduto(l, arroz);
-    insereProduto(l, banana);
-    insereProduto(l, chocolate);
-    insereProduto(l, feijao);
+    insereFimProduto(l, arroz);
+    insereFimProduto(l, banana);
+    insereFimProduto(l, chocolate);
+    insereFimProduto(l, feijao);
 
     imprimeLista(l);
 
     retiraProduto(l, 1);
-    imprimeLista(l);
-
-    insereProduto(l, arroz);
     imprimeLista(l);
 
     liberaLista(l);

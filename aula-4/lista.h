@@ -8,7 +8,9 @@ typedef struct lista Lista;
 
 Lista* criaLista();
 
-void insereProduto(Lista *l, Produto *p);
+void insereInicioProduto(Lista *l, Produto *p);
+
+void insereFimProduto(Lista *l, Produto *p);
 
 void retiraProduto(Lista *l, int codigo);
 

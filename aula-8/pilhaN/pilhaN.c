@@ -38,7 +38,7 @@ void push(TipoPilhaN *pilha, TipoItem *item, int i){
     }
 
     int max = MAXTAM;
-    if(i != 9) max = pilha->Pilha[i + 1].Base;
+    if(i != pilha->qtd - 1) max = pilha->Pilha[i + 1].Base;
     if(pilha->Pilha[i].Topo + 1 == max){
         printf("Overflow\n");
         free(item);

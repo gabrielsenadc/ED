@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "search.h": "c",
+        "random": "c",
+        "stdio.h": "c",
+        "vetor.h": "c"
+    }
+}

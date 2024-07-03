@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "tree.h": "c",
+        "stdlib.h": "c",
+        "aluno.h": "c"
+    }
+}

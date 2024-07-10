@@ -36,7 +36,7 @@ void printWord(Word *word){
 }
 
 int compareWords(const void * word1, const void *word2){
-    Word *w1 = (Word*) word1;
-    Word *w2 = (Word*) word2;
-    return strcmp(w1->string, w2->string);
+    Word *w1 = *(Word**) word1;
+    Word *w2 = *(Word**) word2;
+    return w1->qtd - w2->qtd;
 }

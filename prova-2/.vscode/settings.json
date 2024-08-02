@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "hashcountry.h": "c",
+        "stdio.h": "c"
+    }
+}

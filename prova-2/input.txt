@@ -1,0 +1,6 @@
+BRA 2 3 1
+FRA 4 1 7
+ESP 2 4 1
+EUA 3 4 1
+ENG 2 4 3
+BRA 4 3 1

@@ -1,0 +1,5 @@
+BRA: 4 ouro - 3 prata - 1 bronze
+FRA: 4 ouro - 1 prata - 7 bronze
+EUA: 3 ouro - 4 prata - 1 bronze
+ENG: 2 ouro - 4 prata - 3 bronze
+ESP: 2 ouro - 4 prata - 1 bronze

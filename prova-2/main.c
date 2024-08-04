@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include "hashCountry.h"
+#include "treeCountry.h"
 
 int main(){
     FILE * file = fopen("input.txt", "r");
 
     Hash * hash = criaHash(17);
+    Tree * tree = NULL;
 
     char nome[4];
     int ouro = 0, prata = 0, bronze = 0;
@@ -12,11 +14,14 @@ int main(){
         fscanf(file, "%d %d %d%*c", &ouro, &prata, &bronze);
 
         insereHash(hash, nome, ouro, prata, bronze);
+        tree = insereTree(tree, nome, ouro, prata, bronze);
     }
     
-    criaRank(hash);
+    criaRankHash(hash);
+    criaRankTree(tree);
 
     freeHash(hash);
+    freeTree(tree);
 
     fclose(file);
 }

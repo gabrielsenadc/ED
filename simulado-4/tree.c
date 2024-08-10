@@ -35,7 +35,7 @@ void printTree(Tree * tree, FILE * file){
 }
 
 void printSortedTree(Tree * tree){
-    FILE * file = fopen("saida.txt", "w");
+    FILE * file = fopen("saidaTree.txt", "w");
 
     printTree(tree, file);
 

@@ -13,10 +13,16 @@ void incPresenca(Pessoa *pessoa);
 
 char * getNome(Pessoa *pessoa);
 
-void liberaPessoa(Pessoa * pessoa);
+void liberaPessoa(void * p);
 
-void imprimePessoa(Pessoa * pessoa, FILE * file);
+void imprimePessoa(void * p, FILE * file);
 
 int comparaPessoa(const void * pessoa1, const void * pessoa2);
+
+int hashFunction(void * p, int size);
+
+void imprimePessoaTerminal(void * p);
+
+void setPresenca(void * pes1, char p);
 
 #endif

@@ -5,7 +5,7 @@
 int main(){
     FILE * file = fopen("input.txt", "r");
 
-    Hash * hash = criaHash(17);
+    Hash * hash = criaHash(13);
     Tree * tree = NULL;
 
     char nome[4];
@@ -13,8 +13,11 @@ int main(){
     while(fscanf(file, "%s", nome) == 1){
         fscanf(file, "%d %d %d%*c", &ouro, &prata, &bronze);
 
-        insereHash(hash, nome, ouro, prata, bronze);
-        tree = insereTree(tree, nome, ouro, prata, bronze);
+        if(prata == 0 && bronze == 0 && ouro == 0) tree = removeTree(tree, nome);
+        else tree = insereTree(tree, nome, ouro, prata, bronze);
+
+        if(prata == 0 && bronze == 0 && ouro == 0) removeHash(hash, nome);
+        else insereHash(hash, nome, ouro, prata, bronze);
     }
     
     criaRankHash(hash);

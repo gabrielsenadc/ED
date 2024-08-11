@@ -75,3 +75,39 @@ void freeTree(Tree *tree){
 
     free(tree);
 }
+
+Tree * removeTree(Tree * tree, char * nome){
+    if(tree == NULL) return tree;
+
+    Tree * aux = NULL;
+    if(!strcmp(nome, getNome(tree->country))){
+        if(tree->left == NULL){
+            aux = tree->right;
+            freeCountry(tree->country);
+            free(tree);
+            return aux;
+        }
+        if(tree->right == NULL){
+            aux = tree->left;
+            freeCountry(tree->country);
+            free(tree);
+            return aux;
+        }
+
+        Tree * righter = tree->left;
+        while(righter->right){
+            righter = righter->right;
+        }
+
+        Country * aux = tree->country;
+        tree->country = righter->country;
+        righter->country = aux;
+
+        tree->left = removeTree(tree->left, nome);
+
+    }
+    if(strcmp(nome, getNome(tree->country)) > 0) tree->right = removeTree(tree->right, nome);
+    if(strcmp(nome, getNome(tree->country)) < 0) tree->left = removeTree(tree->left, nome);
+
+    return tree;
+}

@@ -14,6 +14,7 @@ void criaRankHash(Hash *hash);
 
 void freeHash(Hash *hash);
 
+void removeHash(Hash * hash, char * nome);
 
 
 #endif

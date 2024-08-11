@@ -42,6 +42,7 @@ void insereHash(Hash *hash, char *nome, int ouro, int prata, int bronze){
 
     while(aux){
         if(!strcmp(nome, getNome(aux->country))) break;
+        aux = aux->next;
     }
 
     if(aux == NULL){
@@ -98,6 +99,27 @@ void criaRankHash(Hash *hash){
     }
 
     fclose(file);
+}
+
+void removeHash(Hash * hash, char * nome){
+    int index = hashFunction(hash->size, nome);
+
+    Cell *cell = hash->tab[index], *aux = NULL;
+
+    while(cell){
+        if(!strcmp(nome, getNome(cell->country))){
+            if(aux) aux->next = cell->next;
+            if(aux == NULL) hash->tab[index] = cell->next;
+
+            freeCountry(cell->country);
+            free(cell);
+            
+            hash->qtd--;
+            break;
+        }
+        aux = cell;
+        cell = cell->next;
+    }
 }
 
 
